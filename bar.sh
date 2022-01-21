@@ -87,5 +87,5 @@ while true; do
 
 	xsetroot -name "$(status)"
 
-	sleep 12
+	sleep 5
 done
