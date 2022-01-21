@@ -119,6 +119,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
 //	{ MODKEY,                       XK_space,  setlayout, 	   {0} },
+	{ MODKEY,              XK_i,           view_adjacent,  { .i = +1 } },
+	{ MODKEY,              XK_u,           view_adjacent,  { .i = -1 } },
 	{ Mod1Mask,			XK_Shift_L, spawn,	   SHCMD("slp=$(pidof sleep 5); kill $slp") },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
