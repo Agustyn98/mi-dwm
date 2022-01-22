@@ -1,6 +1,6 @@
 #!/bin/bash
 # Move this file wherever it's configured in the autostart in config.h
-# Dependencies: thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome
+# Dependencies: thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome, numlockx, fehbg, nm-applet
 
 	status(){
 
