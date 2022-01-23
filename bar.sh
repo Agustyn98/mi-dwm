@@ -22,9 +22,9 @@
 		
 		# Battery		
 		capacity=$(cat /sys/class/power_supply/BAT0/capacity) 
-		if [ $capacity -gt 90 ]; then
+		if [ $capacity -gt 85 ]; then
 			capacity="  $capacity"	
-		elif [ $capacity -lt 30 ]; then
+		elif [ $capacity -lt 35 ]; then
 			capacity="  $capacity"	
 		else
 			capacity="  $capacity"	
