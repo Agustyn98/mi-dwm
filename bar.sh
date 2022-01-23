@@ -5,19 +5,18 @@
 	status(){
 
 		# Temperature:
-		cpu_temp=$(sed 's/000$//' /sys/class/thermal/thermal_zone7/temp)
+		#cpu_temp=$(sed 's/000$//' /sys/class/thermal/thermal_zone7/temp)
 		#cpu_temp=$(sensors coretemp-isa-0000 | grep Package); cpu_temp=${cpu_temp:16:2}
 
 		# CPU
-		cpu=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" |awk '{print 100 - $1"%"}')
-		cpu=" $cpu"
+		#cpu=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" |awk '{print 100 - $1"%"}')
+		#cpu=" $cpu"
 
-
-		if [ $cpu_temp -gt 70 ]; then
-			cpu_temp=" $cpu_temp";
-		else
-			cpu_temp=" $cpu_temp";
-		fi
+		#if [ $cpu_temp -gt 70 ]; then
+		#	cpu_temp=" $cpu_temp";
+		#else
+		#	cpu_temp=" $cpu_temp";
+		#fi
 
 		
 		# Battery		
@@ -48,16 +47,10 @@
 		date="  $( date '+%a %d/%m %H:%M' )";
 
 		# Volume
-		is_mute=$(pactl get-sink-mute @DEFAULT_SINK@)
-		if [ "$is_mute" = "Mute: yes" ]; then 
-			is_mute=1; 
-		else
-			is_mute=0;
-		fi
-
 		long_volume=$(pactl get-sink-volume @DEFAULT_SINK@);
+		is_mute=$(pactl get-sink-mute @DEFAULT_SINK@)
 		
-		if [ $is_mute = 1 ]; then
+		if [ "$is_mute" = "Mute: yes" ]; then 
 			short_volume="  0";
 		else
 			short_volume=" ${long_volume:28:4}";
@@ -79,7 +72,7 @@
 		#weather=$(curl -s wttr.in/$LOCATION?format=1)
 
 		
-		echo "$short_volume | $brightness | $capacity - $status | $kb_layout | $cpu | $cpu_temp | $date";
+		echo "$short_volume  |  $brightness  |  $capacity - $status  |  $kb_layout  |  $date";
 
 	}
 
@@ -87,5 +80,5 @@ while true; do
 
 	xsetroot -name "$(status)"
 
-	sleep 5
+	sleep 25
 done
