@@ -72,7 +72,7 @@
 		#weather=$(curl -s wttr.in/$LOCATION?format=1)
 
 		
-		echo "$short_volume  |  $brightness  |  $capacity - $status  |  $kb_layout  |  $date";
+		echo " $short_volume  |  $brightness  |  $capacity - $status  |  $kb_layout  |  $date";
 
 	}
 
