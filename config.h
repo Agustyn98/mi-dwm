@@ -9,8 +9,8 @@
 //static const char *brightness[] ={"brightnessctl", "set", "6000+", NULL};
 //static const char *brightness2[]= {"brightnessctl", "set", "6000-", "--min-value=1", "NULL"};
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 22;       /* snap pixel */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int snap      = 10;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -28,14 +28,15 @@ static const char col_black[]       = "#000000";
 static const char col_dark_purple[] = "#6A1A87";
 static const char col_white[] 	    = "#FFFFFF";
 static const char col_purple[] 	    = "#ab20fd";
-static const char col_cyan[]        = "#005577";
+//static const char col_cyan[]        = "#005577";
 //static const char col_pink[]        = "#f000ff";
+static const char col_green_aqua[] = "#00ff9f";
 static const char col_aqua[]   	    = "#76FFFD";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_aqua, col_black, col_gray2 },
-	[SchemeSel]  = { col_white, col_dark_purple,  col_aqua },
+	[SchemeSel]  = { col_white, col_dark_purple, col_aqua},
 };
 
 static const char *const autostart[] = {
@@ -99,7 +100,7 @@ static const char *calculator[]  = { "galculator", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun -run-shell-command" )},
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -show drun -run-shell-command" )},
 	{ MODKEY,            		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = screenshot } },	
 	{ MODKEY,			XK_w,	   spawn,	   {.v = internet} },	
@@ -107,8 +108,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+//	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+//	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,     {0} },
@@ -139,6 +140,7 @@ static Key keys[] = {
 	{ 0,       			XF86XK_AudioPlay,spawn, SHCMD("cmus-remote -u") },
 	{ 0,       			XK_Print,spawn, SHCMD("gnome-screenshot") },
 	{ 0,       			XF86XK_Calculator,spawn, {.v = calculator} },
+	{ MODKEY,       		XK_p,spawn, SHCMD("xrandr --output DP-1 --auto --right-of eDP-1") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
