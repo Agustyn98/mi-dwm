@@ -40,10 +40,10 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"/usr/local/bin/bar.sh", NULL,
 	"nm-applet", NULL,
 	"sh", "-c", "numlockx &", NULL,
 	"/home/agus/.fehbg", NULL,
-	"/usr/local/bin/bar.sh", NULL,
 	"sh", "-c", "setxkbmap us,es -option 'grp:alt_shift_toggle'", NULL,
 	NULL /* terminate */
 };
