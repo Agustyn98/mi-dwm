@@ -1,6 +1,6 @@
 #!/bin/bash
 # Move this file wherever it's configured in the autostart in config.h
-# Dependencies: thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome, numlockx, fehbg, nm-applet
+# Dependencies: rofi, thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome, numlockx, feh, nm-applet, xorg-xsetroot, gnome-screenshot, galculator
 
 	status(){
 
@@ -72,7 +72,7 @@
 		#weather=$(curl -s wttr.in/$LOCATION?format=1)
 
 		
-		echo " $short_volume  |  $brightness  |  $capacity - $status  |  $kb_layout  |  $date";
+		echo " $short_volume | $brightness | $capacity - $status | $kb_layout | $date";
 
 	}
 
