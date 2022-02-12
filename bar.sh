@@ -1,6 +1,6 @@
 #!/bin/bash
 # Move this file wherever it's configured in the autostart in config.h
-# Dependencies: rofi, thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome, numlockx, feh, nm-applet, xorg-xsetroot, gnome-screenshot, galculator
+# Dependencies: rofi, thunar, chromium, alacritty, brightnessctl, xinput, fonts awesome, numlockx, feh, nm-applet, xorg-xsetroot, gnome-screenshot, galculator, calendar.sh in /usr/local/bin
 
 	status(){
 
