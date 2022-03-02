@@ -271,6 +271,8 @@ static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
 static void autostart_exec(void);
+static void tagtoleft(const Arg *arg);
+static void tagtoright(const Arg *arg);
 
 /* variables */
 static Systray *systray =  NULL;
@@ -2580,6 +2582,28 @@ view_adjacent(const Arg *arg)
 
 	a.i = (1 << seltag);
 	view(&a);
+}
+
+void
+tagtoleft(const Arg *arg) {
+		if(selmon->sel != NULL
+		&& __builtin_popcount(selmon->tagset[selmon->seltags] & TAGMASK) == 1
+		&& selmon->tagset[selmon->seltags] > 1) {
+		selmon->sel->tags >>= 1;
+		focus(NULL);
+		arrange(selmon);
+		}
+	}
+	
+void
+tagtoright(const Arg *arg) {
+	if(selmon->sel != NULL
+	&& __builtin_popcount(selmon->tagset[selmon->seltags] & TAGMASK) == 1
+	&& selmon->tagset[selmon->seltags] & (TAGMASK >> 1)) {
+	selmon->sel->tags <<= 1;
+	focus(NULL);
+	arrange(selmon);
+	}
 }
 
 int

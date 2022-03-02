@@ -58,12 +58,13 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 //	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+//	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "galculator",  NULL,       NULL,       0,       1,           -1 },
 };
 
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.62; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -133,6 +134,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
 	{ 0,            	        XF86XK_AudioMute, spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@  toggle;slp=$(pidof sleep 5); kill $slp") },
 	{ 0,                       	XF86XK_AudioLowerVolume, 	 spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -3%;slp=$(pidof sleep 5); kill $slp")},
 	{ 0,                       	XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +3%;slp=$(pidof sleep 5); kill $slp") },
